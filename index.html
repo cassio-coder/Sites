@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div> <img src="" alt="" id="wft-image"> <span><b>Encontre o seu grupo</b></span> </div>
+    <section id="sect"></section>
+    <script>
+        function ler(nom,des){
+            let a = document.getElementById("sect");
+            let b = document.createElement("div");
+            let c = document.createElement("h2");
+            let d = document.createElement("p");
+            c.innerText = nom;
+            d.innerText = des;
+            a.appendChild(b);
+            b.appendChild(c);
+            b.appendChild(d);
+        }
+        fetch("/Grupos").then(res => res.json()).then(date => {
+            ler(date.nome,date.desc);
+        })
+
+    </script>
+</body>
+</html>
